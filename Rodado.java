@@ -1,9 +1,7 @@
-import java.util.List;
-import java.util.Scanner;
 
 public class Rodado {
 
-   // private int id;
+    private int id;
     private String marca;
     private String modelo;
     private int año;
@@ -14,13 +12,13 @@ public class Rodado {
     private String dominio;
     private String tipocombustible;
 
-    //public int getId() {
-    //    return id;
-    //}
+    public int getId(int id) {
+        return id;
+    }
 
-    //public void setId(int id) {
-    //    this.id = id;
-    //}
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getMarca() {
         return marca;
@@ -95,7 +93,7 @@ public class Rodado {
     }
 
 
-/*
+
     @Override
     public String toString() {
         return "Rodado{" +
@@ -111,6 +109,6 @@ public class Rodado {
                 ", tipocombustible='" + tipocombustible + '\'' +
                 '}';
     }
-    */
+
 }
 

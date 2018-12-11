@@ -1,9 +1,6 @@
 public class Auto extends Rodado{
 
     private int cantpuertas;
-    private enum tipocaja{
-        AUTO, MANUAL
-    }
     private float motor;
     private int cantvalvulas;
     private int baul;
