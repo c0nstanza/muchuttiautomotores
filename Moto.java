@@ -9,6 +9,15 @@ public class Moto extends Rodado{
         this.cilindrada = cilindrada;
     }
 
+    public Moto(int id, String marca, String modelo, int año, String color, float cantkm, float precio, int cilindrada) {
+        super(id, marca, modelo, año, color, cantkm, precio);
+        this.cilindrada = cilindrada;
+    }
+
+    public Moto(){
+
+    }
+
     @Override
     public String toString() {
         return "Moto{" +

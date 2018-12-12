@@ -32,17 +32,42 @@ public class Menu {
         int continuar = 1;
         while (continuar == 1) {
             Auto auto = new Auto();
-            System.out.println("Ingrese marca: ");
+            System.out.print("Ingrese ID: ");
+            texto = sc.next();
+            auto.setId(Integer.parseInt(texto));
+            System.out.print("Ingrese marca: ");
             texto = sc.next();
             auto.setMarca(texto);
-            System.out.println("Modelo: ");
+            System.out.print("Modelo: ");
             texto = sc.next();
             auto.setModelo(texto);
-            System.out.println("Año: ");
+            System.out.print("Año: " );
             texto = sc.next();
             auto.setAño(Integer.parseInt(texto));
+            System.out.print("Color: " );
+            texto = sc.next();
+            auto.setColor(texto);
+            System.out.print("Cantidad de km: " );
+            texto = sc.next();
+            auto.setCantkm(Integer.parseInt(texto));
+            System.out.print("Precio: " );
+            texto = sc.next();
+            auto.setPrecio(Integer.parseInt(texto));
+            System.out.print("Cantidad de puertas: " );
+            texto = sc.next();
+            auto.setCantpuertas(Integer.parseInt(texto));
+            System.out.print("Motor: " );
+            texto = sc.next();
+            auto.setMotor(Integer.parseInt(texto));
+            System.out.print("Cantidad de valvulas: " );
+            texto = sc.next();
+            auto.setCantvalvulas(Integer.parseInt(texto));
+            System.out.print("Baul (litros): " );
+            texto = sc.next();
+            auto.setBaul(Integer.parseInt(texto));
             listaAuto.agregar(auto);
             System.out.println("Desea dar de alta otro auto? 1. Si / X. No");
+            System.out.print("Opcion: ");
             texto = sc.next();
             continuar = (Integer.parseInt(texto));
             if (continuar != 1) {
@@ -55,11 +80,10 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         int id;
         listaAuto.listar();
-        System.out.println("Ingrese el ID del Auto que desea ELIMINAR: ");
+        System.out.print("Ingrese el ID del Auto que desea ELIMINAR: ");
         id = sc.nextInt();
-        //tratar excepcion si no ingresa un id listado
-        listaAuto.buscar_borrar(id);
-        System.out.println("Lista actualizada");
+        listaAuto.buscar_borrar_Auto(id);
+        System.out.println("\n\nLista actualizada");
         listaAuto.listar();
     }
 
@@ -140,14 +164,21 @@ public class Menu {
             }
     }
     }
-    /*
+
     public void tratarBajaCamioneta(){
 
     }
 
     public void tratarModCamioneta(){
+        int id = 0;
+        listaCamioneta.listar();
+        System.out.println("Ingrese el ID de la camioneta que desear modificar: ");
 
-    }*/
+        Camioneta camioneta_buscada = null;
+        camioneta_buscada.getId();
+
+
+    }
 
     // ********************************************************************
 
@@ -174,6 +205,7 @@ public class Menu {
                 camion.setPotencia(texto2);
                 listaCamion.agregar(camion);
                 System.out.println("Desea dar de alta otro camion? 1. Si / X. No");
+                System.out.print("Opcion: ");
                 texto = sc.next();
                 continuar = (Integer.parseInt(texto));
                 if (continuar != 1) {
@@ -182,98 +214,121 @@ public class Menu {
         }
 
     }
-/*
+
     public void tratarBajaCamion(){
 
     }
 
     public void tratarModCamion(){
 
-    }*/
+            tratarAltaCamion();
+    }
 
     // ********************************************************************
 
     // Muestro el listado completo de los rodados
 
     public void listadoCompleto(){
+        Scanner sc = new Scanner(System.in);
+        int opcion;
         listaAuto.listar();
         listaMoto.listar();
         listaCamioneta.listar();
         listaCamion.listar();
-        //volver al menu principal
+        System.out.println("Presione 1 para continuar");
+        opcion = sc.nextInt();
+        if (opcion == 1) {
+            mostrar();
+        }
     }
 
-    public void mostrar(){
+    public void mostrar() {
         Scanner sc = new Scanner(System.in);
-        int opcion;
+        int opcion = 0;
+        while (opcion != 5) {
+            System.out.println("/-/-/-/-/- MUCHUTTI AUTOS -/-/-/-/-/");
+            System.out.println("MENU PRINCIPAL");
+            System.out.println("Elija la operacion que desea realizar:");
+            System.out.println("1. Alta");
+            System.out.println("2. Baja");
+            System.out.println("3. Modificacion");
+            System.out.println("4. Listar rodados");
+            System.out.println("5. Salir");
+            System.out.print("Opcion: ");
+            opcion = sc.nextInt();
+            switch (opcion) {
+                case 1:
+                    while (opcion != 5) {
+                        sc = new Scanner(System.in);
+                        System.out.println("MENU DE ALTA");
+                        System.out.println("Que desea dar de ALTA?");
+                        System.out.println("1. Auto");
+                        System.out.println("2. Moto");
+                        System.out.println("3. Camioneta");
+                        System.out.println("4. Camion");
+                        System.out.println("5. Volver al menu principal");
+                        System.out.print("Opcion: ");
+                        opcion = sc.nextInt();
+                        switch (opcion) {
+                            case 1:
+                                tratarAltaAuto();
+                            case 2:
+                                tratarAltaMoto();
+                            case 3:
+                                tratarAltaCamioneta();
+                            case 4:
+                                tratarAltaCamion(); //case 4: listaAuto.Listar();
+                        }
+                    }
+                case 2:
+                    while (opcion != 5) {
+                        sc = new Scanner(System.in);
+                        System.out.println("MENU DE BAJA");
+                        System.out.println("Que desea dar de BAJA?");
+                        System.out.println("1. Auto");
+                        System.out.println("2. Moto");
+                        System.out.println("3. Camioneta");
+                        System.out.println("4. Camion");
+                        System.out.println("5. Volver al menu principal");
+                        System.out.print("Opcion: ");
+                        opcion = sc.nextInt();
+                        switch (opcion) {
+                            case 1:
+                                tratarBajaAuto();
+                            case 2:
+                                tratarBajaMoto();
+                                case 3: tratarBajaCamioneta();
 
-        System.out.println("/-/-/-/-/- MUCHUTTI AUTOS -/-/-/-/-/");
-        System.out.println("MENU PRINCIPAL");
-        System.out.println("Elija la operacion que desea realizar:");
-        System.out.println("1. Alta");
-        System.out.println("2. Baja");
-        System.out.println("3. Modificacion");
-        System.out.println("4. Listar rodados");
-        System.out.println("5. Salir");
-        opcion = sc.nextInt();
-        switch (opcion){
-            case 1:
-                while (opcion != 5) {
-                    sc = new Scanner(System.in);
-                    System.out.println("MENU DE ALTA");
-                    System.out.println("Que desea dar de ALTA?");
-                    System.out.println("1. Auto");
-                    System.out.println("2. Moto");
-                    System.out.println("3. Camioneta");
-                    System.out.println("4. Camion");
-                    System.out.println("5. Volver al menu principal");
-                    opcion = sc.nextInt();
-                    switch (opcion) {
-                        case 1: tratarAltaAuto();
-                        case 2: tratarAltaMoto();
-                        case 3: tratarAltaCamioneta();
-                        case 4: tratarAltaCamion(); //case 4: listaAuto.Listar();
+                                case 4: tratarBajaCamion();
+                        }
                     }
-                }
-            case 2:
-                while (opcion != 5) {
-                    sc = new Scanner(System.in);
-                    System.out.println("MENU DE BAJA");
-                    System.out.println("Que desea dar de BAJA?");
-                    System.out.println("1. Auto");
-                    System.out.println("2. Moto");
-                    System.out.println("3. Camioneta");
-                    System.out.println("4. Camion");
-                    System.out.println("5. Volver al menu principal");
-                    opcion = sc.nextInt();
-                    switch (opcion) {
-                        case 1: tratarBajaAuto();
-                        case 2: tratarBajaMoto();
-                        //case 3: tratarBajaCamioneta();
-                        //case 4: tratarBajaCamion();
+                case 3:
+                    while (opcion != 5) {
+                        sc = new Scanner(System.in);
+                        System.out.println("MENU DE MODIFICAR");
+                        System.out.println("Que desea MODIFICAR?");
+                        System.out.println("1. Auto");
+                        System.out.println("2. Moto");
+                        System.out.println("3. Camioneta");
+                        System.out.println("4. Camion");
+                        System.out.println("5. Volver al menu principal");
+                        System.out.print("Opcion: ");
+                        opcion = sc.nextInt();
+                        switch (opcion) {
+                            case 1:
+                                tratarModAuto();
+                            case 2:
+                                tratarModMoto();
+                                case 3: tratarModCamioneta();
+                                case 4: tratarModCamion();
+                        }
                     }
-                }
-            case 3:
-                while (opcion != 5) {
-                    sc = new Scanner(System.in);
-                    System.out.println("MENU DE MODIFICAR");
-                    System.out.println("Que desea MODIFICAR?");
-                    System.out.println("1. Auto");
-                    System.out.println("2. Moto");
-                    System.out.println("3. Camioneta");
-                    System.out.println("4. Camion");
-                    System.out.println("5. Volver al menu principal");
-                    opcion = sc.nextInt();
-                    switch (opcion) {
-                        case 1: tratarModAuto();
-                        case 2: tratarModMoto();
-                        //case 3: tratarModCamioneta();
-                        //case 4: tratarModCamion();
-                    }
-                }
 
-            case 4: listadoCompleto();
-            case 5: break;
+                case 4:
+                    listadoCompleto();
+                case 5:
+                    break;
+            }
         }
     }
 }

@@ -1,3 +1,4 @@
+import java.util.Objects;
 
 public class Rodado {
 
@@ -8,11 +9,8 @@ public class Rodado {
     private String color;
     private float cantkm;
     private float precio;
-    private String numchasis;
-    private String dominio;
-    private String tipocombustible;
 
-    public int getId(int id) {
+    public int getId() {
         return id;
     }
 
@@ -68,46 +66,44 @@ public class Rodado {
         this.precio = precio;
     }
 
-    public String getNumchasis() {
-        return numchasis;
+    public Rodado(int id, String marca, String modelo, int año, String color, float cantkm, float precio) {
+        this.id = id;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
+        this.color = color;
+        this.cantkm = cantkm;
+        this.precio = precio;
     }
 
-    public void setNumchasis(String numchasis) {
-        this.numchasis = numchasis;
+    public Rodado(){
+
     }
 
-    public String getDominio() {
-        return dominio;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Rodado rodado = (Rodado) o;
+
+        return getId() == rodado.getId();
     }
 
-    public void setDominio(String dominio) {
-        this.dominio = dominio;
+    @Override
+    public int hashCode() {
+        return getId();
     }
-
-    public String getTipocombustible() {
-        return tipocombustible;
-    }
-
-    public void setTipocombustible(String tipocombustible) {
-        this.tipocombustible = tipocombustible;
-    }
-
-
 
     @Override
     public String toString() {
-        return "Rodado{" +
-                "id=" + id +
-                ", marca='" + marca + '\'' +
-                ", modelo='" + modelo + '\'' +
-                ", año=" + año +
-                ", color='" + color + '\'' +
-                ", cantkm=" + cantkm +
-                ", precio=" + precio +
-                ", numchasis='" + numchasis + '\'' +
-                ", dominio='" + dominio + '\'' +
-                ", tipocombustible='" + tipocombustible + '\'' +
-                '}';
+        return  "id =" + id +
+                ", marca ='" + marca + '\'' +
+                ", modelo ='" + modelo + '\'' +
+                ", año =" + año +
+                ", color ='" + color + '\'' +
+                ", cantkm =" + cantkm +
+                ", precio =" + precio;
     }
 
 }

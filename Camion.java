@@ -10,6 +10,14 @@ public class Camion extends Rodado {
         this.potencia = potencia;
     }
 
+    public Camion(int id, String marca, String modelo, int año, String color, float cantkm, float precio, int potencia) {
+        super(id, marca, modelo, año, color, cantkm, precio);
+        this.potencia = potencia;
+    }
+
+    public Camion(){
+
+    }
     @Override
     public String toString() {
         return "Camion{" +

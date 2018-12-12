@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Auto extends Rodado{
 
     private int cantpuertas;
@@ -37,30 +39,25 @@ public class Auto extends Rodado{
         this.baul = baul;
     }
 
-    public Auto(){
-
-    }
-
-    public Auto(int cantpuertas, float motor, int cantvalvulas, int baul, String marca, String modelo, int año) {
+    public Auto(int id, String marca, String modelo, int año, String color, float cantkm, float precio, int cantpuertas, float motor, int cantvalvulas, int baul) {
+        super(id, marca, modelo, año, color, cantkm, precio);
         this.cantpuertas = cantpuertas;
         this.motor = motor;
         this.cantvalvulas = cantvalvulas;
         this.baul = baul;
-        this.setMarca(marca);
-        this.setModelo(modelo);
-        this.setAño(año);
+    }
+
+    public Auto(){
+
     }
 
     @Override
     public String toString() {
-        return "Auto{" +
-                "marca ="+ this.getMarca() +
-                "modelo ="+ this.getModelo() +
-                "año ="+ this.getAño() +
-                "cantpuertas =" + cantpuertas +
-                ", motor =" + motor +
-                ", cantvalvulas =" + cantvalvulas +
-                ", baul =" + baul +
-                '}';
+        return
+                super.toString()+
+                "cantpuertas=" + cantpuertas +
+                ", motor=" + motor +
+                ", cantvalvulas=" + cantvalvulas +
+                ", baul=" + baul;
     }
 }

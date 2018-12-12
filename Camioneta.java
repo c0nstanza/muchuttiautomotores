@@ -10,6 +10,15 @@ public class Camioneta extends Rodado {
         this.traccion = traccion;
     }
 
+    public Camioneta(int id, String marca, String modelo, int año, String color, float cantkm, float precio, boolean traccion) {
+        super(id, marca, modelo, año, color, cantkm, precio);
+        this.traccion = traccion;
+    }
+
+    public Camioneta(){
+
+    }
+
     @Override
     public String toString() {
         return "Camioneta{" +
