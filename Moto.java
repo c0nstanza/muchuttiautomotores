@@ -21,6 +21,6 @@ public class Moto extends Rodado{
     @Override
     public String toString() {
         return  super.toString() +
-                " Cilindrada=" + cilindrada;
+                " Cilindrada =" + cilindrada;
     }
 }

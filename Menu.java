@@ -28,6 +28,7 @@ public class Menu {
     }
 
     // ******************** TRATAMIENTO ABM AUTO **************************
+
     public void tratarAltaAuto(){
         Scanner sc = new Scanner(System.in);
         String texto;
@@ -98,7 +99,7 @@ public class Menu {
         System.out.print("Ingrese el ID del Auto que desea MODIFICAR: ");
         id = sc.nextInt();
         listaAuto.buscar_modificar_Auto(id);
-        System.out.println("\nLista actualizada");
+        System.out.println("\nLista actualizada de autos");
         listaAuto.listar();
         System.out.println("\n");
     }
@@ -161,7 +162,16 @@ public class Menu {
     }
 
     public void tratarModMoto(){
-
+        Scanner sc = new Scanner(System.in);
+        int id;
+        listaMoto.listar();
+        System.out.println("\n");
+        System.out.print("Ingrese el ID de la moto que desea MODIFICAR: ");
+        id = sc.nextInt();
+        listaMoto.buscar_modificar_Moto(id);
+        System.out.println("\nLista actualizada de motos");
+        listaMoto.listar();
+        System.out.println("\n");
     }
 
     // ********************************************************************
@@ -222,10 +232,16 @@ public class Menu {
     }
 
     public void tratarModCamioneta(){
-        int id = 0;
+        Scanner sc = new Scanner(System.in);
+        int id;
         listaCamioneta.listar();
-        System.out.println("Ingrese el ID de la camioneta que desear modificar: ");
-
+        System.out.println("\n");
+        System.out.print("Ingrese el ID de la Camioneta que desea MODIFICAR: ");
+        id = sc.nextInt();
+        listaCamioneta.buscar_modificar_Camioneta(id);
+        System.out.println("\nLista actualizada de camionetas");
+        listaCamioneta.listar();
+        System.out.println("\n");
     }
 
     // ********************************************************************
@@ -288,14 +304,20 @@ public class Menu {
     }
 
     public void tratarModCamion(){
-
-            tratarAltaCamion();
+        Scanner sc = new Scanner(System.in);
+        int id;
+        listaCamion.listar();
+        System.out.println("\n");
+        System.out.print("Ingrese el ID del Camion que desea MODIFICAR: ");
+        id = sc.nextInt();
+        listaCamion.buscar_modificar_Camion(id);
+        System.out.println("\nLista actualizada de camiones");
+        listaCamion.listar();
+        System.out.println("\n");
     }
-
     // ********************************************************************
 
-    // Muestro el listado completo de los rodados
-
+    // ******* MUESTRO EL LISTADO DE TODOS LOS RODADOS INGRESADOS *********
     public void listadoCompleto(){
         Scanner sc = new Scanner(System.in);
         int opcion;
@@ -313,7 +335,9 @@ public class Menu {
             mostrar();
         }
     }
+    // ********************************************************************
 
+    // ************************** MENU PRINCIPAL **************************
     public void mostrar() {
         Scanner sc = new Scanner(System.in);
         BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
@@ -330,7 +354,7 @@ public class Menu {
             System.out.print("Opcion: ");
             opcion = sc.nextInt();
             switch (opcion) {
-                case 1:
+                case 1: //Trato todas las altas de los rodados
                     while (opcion != 5) {
                         sc = new Scanner(System.in);
                         System.out.println("\n");
@@ -344,17 +368,13 @@ public class Menu {
                         System.out.print("Opcion: ");
                         opcion = sc.nextInt();
                         switch (opcion) {
-                            case 1:
-                                tratarAltaAuto();
-                            case 2:
-                                tratarAltaMoto();
-                            case 3:
-                                tratarAltaCamioneta();
-                            case 4:
-                                tratarAltaCamion();
+                            case 1: tratarAltaAuto();
+                            case 2: tratarAltaMoto();
+                            case 3: tratarAltaCamioneta();
+                            case 4: tratarAltaCamion();
                         }
                     }
-                case 2:
+                case 2: //Trato todas las bajas de los rodados
                     while (opcion != 5) {
                         sc = new Scanner(System.in);
                         System.out.println("\n");
@@ -374,7 +394,7 @@ public class Menu {
                             case 4: tratarBajaCamion();
                         }
                     }
-                case 3:
+                case 3: //Trato todas las modificaciones de los rodados
                     while (opcion != 5) {
                         sc = new Scanner(System.in);
                         System.out.println("\n");
@@ -394,11 +414,11 @@ public class Menu {
                             case 4: tratarModCamion();
                         }
                     }
-
-                case 4: listadoCompleto();
-                case 5: System.exit(1);break;
+                case 4: listadoCompleto(); break;
+                case 5: System.exit(1);
             }
         }
     }
+    // ********************************************************************
 }
 
