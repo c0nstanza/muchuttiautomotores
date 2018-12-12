@@ -94,6 +94,7 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         int id;
         listaAuto.listar();
+        System.out.println("\n");
         System.out.print("Ingrese el ID del Auto que desea MODIFICAR: ");
         id = sc.nextInt();
         listaAuto.buscar_modificar_Auto(id);
