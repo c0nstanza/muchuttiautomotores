@@ -46,7 +46,7 @@ public class Auto extends Rodado{
         this.cantvalvulas = cantvalvulas;
         this.baul = baul;
     }
-
+    //constructor por default
     public Auto(){
 
     }
@@ -55,9 +55,9 @@ public class Auto extends Rodado{
     public String toString() {
         return
                 super.toString()+
-                "cantpuertas=" + cantpuertas +
-                ", motor=" + motor +
-                ", cantvalvulas=" + cantvalvulas +
-                ", baul=" + baul;
+                " Cant. Puertas =" + cantpuertas +
+                ", Motor =" + motor +
+                ", Cant Valvulas =" + cantvalvulas +
+                ", Baul (litros) =" + baul;
     }
 }

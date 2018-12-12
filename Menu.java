@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class Menu {
@@ -83,12 +85,21 @@ public class Menu {
         System.out.print("Ingrese el ID del Auto que desea ELIMINAR: ");
         id = sc.nextInt();
         listaAuto.buscar_borrar_Auto(id);
-        System.out.println("\n\nLista actualizada");
+        System.out.println("\nLista actualizada");
         listaAuto.listar();
+        System.out.println("\n");
     }
 
     public void tratarModAuto(){
-
+        Scanner sc = new Scanner(System.in);
+        int id;
+        listaAuto.listar();
+        System.out.print("Ingrese el ID del Auto que desea MODIFICAR: ");
+        id = sc.nextInt();
+        listaAuto.buscar_modificar_Auto(id);
+        System.out.println("\nLista actualizada");
+        listaAuto.listar();
+        System.out.println("\n");
     }
 
     // ********************************************************************
@@ -101,15 +112,27 @@ public class Menu {
         int continuar = 1;
         while (continuar == 1) {
             Moto moto = new Moto();
-            System.out.println("Ingrese marca: ");
+            System.out.print("Ingrese ID: ");
+            texto = sc.next();
+            moto.setId(Integer.parseInt(texto));
+            System.out.print("Ingrese marca: ");
             texto = sc.next();
             moto.setMarca(texto);
-            System.out.println("Modelo: ");
+            System.out.print("Modelo: ");
             texto = sc.next();
             moto.setModelo(texto);
-            System.out.println("Año: ");
+            System.out.print("Año: " );
             texto = sc.next();
             moto.setAño(Integer.parseInt(texto));
+            System.out.print("Color: " );
+            texto = sc.next();
+            moto.setColor(texto);
+            System.out.print("Cantidad de km: " );
+            texto = sc.next();
+            moto.setCantkm(Integer.parseInt(texto));
+            System.out.print("Precio: " );
+            texto = sc.next();
+            moto.setPrecio(Integer.parseInt(texto));
             System.out.println("Cilindrada: ");
             texto = sc.next();
             moto.setCilindrada(Integer.parseInt(texto));
@@ -125,7 +148,15 @@ public class Menu {
     }
 
     public void tratarBajaMoto(){
-
+        Scanner sc = new Scanner(System.in);
+        int id;
+        listaMoto.listar();
+        System.out.print("Ingrese el ID de la Moto que desea ELIMINAR: ");
+        id = sc.nextInt();
+        listaMoto.buscar_borrar_Moto(id);
+        System.out.println("\nLista actualizada");
+        listaMoto.listar();
+        System.out.println("\n");
     }
 
     public void tratarModMoto(){
@@ -143,15 +174,27 @@ public class Menu {
         int continuar = 1;
         while (continuar == 1) {
             Camioneta camioneta = new Camioneta();
-            System.out.println("Ingrese marca: ");
+            System.out.print("Ingrese ID: ");
+            texto = sc.next();
+            camioneta.setId(Integer.parseInt(texto));
+            System.out.print("Ingrese marca: ");
             texto = sc.next();
             camioneta.setMarca(texto);
-            System.out.println("Modelo: ");
+            System.out.print("Modelo: ");
             texto = sc.next();
             camioneta.setModelo(texto);
-            System.out.println("Año: ");
+            System.out.print("Año: " );
             texto = sc.next();
             camioneta.setAño(Integer.parseInt(texto));
+            System.out.print("Color: " );
+            texto = sc.next();
+            camioneta.setColor(texto);
+            System.out.print("Cantidad de km: " );
+            texto = sc.next();
+            camioneta.setCantkm(Integer.parseInt(texto));
+            System.out.print("Precio: " );
+            texto = sc.next();
+            camioneta.setPrecio(Integer.parseInt(texto));
             System.out.println("4x4?: 1. Si / 2. No ");
             texto2 = sc.nextInt();
             if (texto2 == 1) camioneta.setTraccion(true); else camioneta.setTraccion(false);
@@ -166,17 +209,21 @@ public class Menu {
     }
 
     public void tratarBajaCamioneta(){
-
+        Scanner sc = new Scanner(System.in);
+        int id;
+        listaCamioneta.listar();
+        System.out.print("Ingrese el ID de la Camioneta que desea ELIMINAR: ");
+        id = sc.nextInt();
+        listaCamioneta.buscar_borrar_Camioneta(id);
+        System.out.println("\nLista actualizada");
+        listaCamioneta.listar();
+        System.out.println("\n");
     }
 
     public void tratarModCamioneta(){
         int id = 0;
         listaCamioneta.listar();
         System.out.println("Ingrese el ID de la camioneta que desear modificar: ");
-
-        Camioneta camioneta_buscada = null;
-        camioneta_buscada.getId();
-
 
     }
 
@@ -191,15 +238,27 @@ public class Menu {
             int continuar = 1;
             while (continuar == 1) {
                 Camion camion = new Camion();
-                System.out.println("Ingrese marca: ");
+                System.out.print("Ingrese ID: ");
+                texto = sc.next();
+                camion.setId(Integer.parseInt(texto));
+                System.out.print("Ingrese marca: ");
                 texto = sc.next();
                 camion.setMarca(texto);
-                System.out.println("Modelo: ");
+                System.out.print("Modelo: ");
                 texto = sc.next();
                 camion.setModelo(texto);
-                System.out.println("Año: ");
+                System.out.print("Año: " );
                 texto = sc.next();
                 camion.setAño(Integer.parseInt(texto));
+                System.out.print("Color: " );
+                texto = sc.next();
+                camion.setColor(texto);
+                System.out.print("Cantidad de km: " );
+                texto = sc.next();
+                camion.setCantkm(Integer.parseInt(texto));
+                System.out.print("Precio: " );
+                texto = sc.next();
+                camion.setPrecio(Integer.parseInt(texto));
                 System.out.println("Potencia: ");
                 texto2 = sc.nextInt();
                 camion.setPotencia(texto2);
@@ -216,7 +275,15 @@ public class Menu {
     }
 
     public void tratarBajaCamion(){
-
+        Scanner sc = new Scanner(System.in);
+        int id;
+        listaCamion.listar();
+        System.out.print("Ingrese el ID del Camion que desea ELIMINAR: ");
+        id = sc.nextInt();
+        listaCamion.buscar_borrar_Camion(id);
+        System.out.println("\nLista actualizada");
+        listaCamion.listar();
+        System.out.println("\n");
     }
 
     public void tratarModCamion(){
@@ -232,9 +299,13 @@ public class Menu {
         Scanner sc = new Scanner(System.in);
         int opcion;
         listaAuto.listar();
+        System.out.println("\n");
         listaMoto.listar();
+        System.out.println("\n");
         listaCamioneta.listar();
+        System.out.println("\n");
         listaCamion.listar();
+        System.out.println("\n");
         System.out.println("Presione 1 para continuar");
         opcion = sc.nextInt();
         if (opcion == 1) {
@@ -244,6 +315,7 @@ public class Menu {
 
     public void mostrar() {
         Scanner sc = new Scanner(System.in);
+        BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
         int opcion = 0;
         while (opcion != 5) {
             System.out.println("/-/-/-/-/- MUCHUTTI AUTOS -/-/-/-/-/");
@@ -260,6 +332,7 @@ public class Menu {
                 case 1:
                     while (opcion != 5) {
                         sc = new Scanner(System.in);
+                        System.out.println("\n");
                         System.out.println("MENU DE ALTA");
                         System.out.println("Que desea dar de ALTA?");
                         System.out.println("1. Auto");
@@ -277,12 +350,13 @@ public class Menu {
                             case 3:
                                 tratarAltaCamioneta();
                             case 4:
-                                tratarAltaCamion(); //case 4: listaAuto.Listar();
+                                tratarAltaCamion();
                         }
                     }
                 case 2:
                     while (opcion != 5) {
                         sc = new Scanner(System.in);
+                        System.out.println("\n");
                         System.out.println("MENU DE BAJA");
                         System.out.println("Que desea dar de BAJA?");
                         System.out.println("1. Auto");
@@ -293,19 +367,17 @@ public class Menu {
                         System.out.print("Opcion: ");
                         opcion = sc.nextInt();
                         switch (opcion) {
-                            case 1:
-                                tratarBajaAuto();
-                            case 2:
-                                tratarBajaMoto();
-                                case 3: tratarBajaCamioneta();
-
-                                case 4: tratarBajaCamion();
+                            case 1: tratarBajaAuto();
+                            case 2: tratarBajaMoto();
+                            case 3: tratarBajaCamioneta();
+                            case 4: tratarBajaCamion();
                         }
                     }
                 case 3:
                     while (opcion != 5) {
                         sc = new Scanner(System.in);
-                        System.out.println("MENU DE MODIFICAR");
+                        System.out.println("\n");
+                        System.out.println("MENU DE MODIFICACION");
                         System.out.println("Que desea MODIFICAR?");
                         System.out.println("1. Auto");
                         System.out.println("2. Moto");
@@ -315,19 +387,15 @@ public class Menu {
                         System.out.print("Opcion: ");
                         opcion = sc.nextInt();
                         switch (opcion) {
-                            case 1:
-                                tratarModAuto();
-                            case 2:
-                                tratarModMoto();
-                                case 3: tratarModCamioneta();
-                                case 4: tratarModCamion();
+                            case 1: tratarModAuto();
+                            case 2: tratarModMoto();
+                            case 3: tratarModCamioneta();
+                            case 4: tratarModCamion();
                         }
                     }
 
-                case 4:
-                    listadoCompleto();
-                case 5:
-                    break;
+                case 4: listadoCompleto();
+                case 5: System.exit(1);break;
             }
         }
     }

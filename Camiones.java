@@ -15,35 +15,29 @@ public class Camiones {
 
     //Imprime un listado de la coleccion de camiones
     public void listar(){
+        System.out.println("\n");
         System.out.println("Lista de Camiones");
         System.out.println("---------------");
         for (Camion item : coleccionCamiones) {
-            System.out.println(item.getMarca());
+            System.out.println(item.toString());
         }
     }
-    /*
-    //busca un id dado de un camion en la coleccion
-    public Camion buscarCamion(int id){
+
+    //busca un id dado de un camion en la coleccion y si lo encuentra lo elimina
+    public void buscar_borrar_Camion(int id){
         Camion camion_buscado = null;
         for (Camion item : coleccionCamiones) {
-            if(item.getId(id_ingresado) == id){
+            if(item.getId() == id){
                 camion_buscado = item;
             }
         }
-        return camion_buscado;
+        if (camion_buscado != null){
+            coleccionCamiones.remove(camion_buscado);
+        }else
+            System.out.println("No se ha encontrado el ID "+id+" dentro de la coleccion");
     }
-    //elimina el camion que se busco en el metodo buscarCamion y lo elimina de la coleccion
-    public void eliminarCamion(Camion camion){
-        coleccionCamiones.remove(camion);
-    }*/
 
-    public void buscar_borrar(int id){
-        //buscar el id del camion en la coleccion y eliminarlo
-        for (Camion item: coleccionCamiones) {
-            if(item.getId(id) == id){
-                coleccionCamiones.remove(id);
-            }
-        }
-    }
+
+
 
 }

@@ -17,34 +17,27 @@ public class Motos {
 
     //Imprime un listado de la coleccion de motos
     public void listar(){
+        System.out.println("\n");
         System.out.println("Lista de Motos");
         System.out.println("---------------");
         for (Moto item : coleccionMotos) {
-            System.out.println(item.getMarca());
+            System.out.println(item.toString());
         }
     }
-    /*
-    //busca un id dado de una moto en la coleccion
-    public Moto buscarMoto(int id){
+
+    //busca un id dado de una moto en la coleccion y si lo encuentra lo elimina
+    public void buscar_borrar_Moto(int id){
         Moto moto_buscada = null;
         for (Moto item : coleccionMotos) {
-            if(item.getId(id_ingresado) == id){
-                moto_buscada = item;
+            if(item.getId() == id){
+                 moto_buscada = item;
             }
         }
-        return moto_buscada;
+        if (moto_buscada != null){
+            coleccionMotos.remove(moto_buscada);
+        }else
+            System.out.println("No se ha encontrado el ID "+id+" dentro de la coleccion");
     }
-    //elimina la moto que se busco en el metodo BuscarMoto y la elimina de la coleccion
-    public void eliminarMoto(Moto moto){
-        coleccionMotos.remove(moto);
-    }*/
 
-    public void buscar_borrar(int id){
-        //buscar el id de la camioneta en la coleccion y eliminarlo
-        for (Moto item: coleccionMotos) {
-            if(item.getId(id) == id){
-                coleccionMotos.remove(id);
-            }
-        }
-    }
+
 }

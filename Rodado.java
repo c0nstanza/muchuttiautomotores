@@ -75,7 +75,7 @@ public class Rodado {
         this.cantkm = cantkm;
         this.precio = precio;
     }
-
+    //constructor por default
     public Rodado(){
 
     }
@@ -83,27 +83,26 @@ public class Rodado {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null || this.getClass() != o.getClass()) return false;
 
         Rodado rodado = (Rodado) o;
-
-        return getId() == rodado.getId();
+        return this.getId() == rodado.getId();
     }
 
     @Override
     public int hashCode() {
-        return getId();
+        return Objects.hash(this.getId());
     }
 
     @Override
     public String toString() {
-        return  "id =" + id +
-                ", marca ='" + marca + '\'' +
-                ", modelo ='" + modelo + '\'' +
-                ", año =" + año +
-                ", color ='" + color + '\'' +
-                ", cantkm =" + cantkm +
-                ", precio =" + precio;
+        return  "Id = " + id +
+                ", Marca = " + marca +
+                ", Modelo = " + modelo +
+                ", Año = " + año +
+                ", Color = " + color +
+                ", Cant Km = " + cantkm +
+                ", Precio = $" + precio;
     }
 
 }

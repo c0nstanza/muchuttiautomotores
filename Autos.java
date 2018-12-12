@@ -15,29 +15,17 @@ public class Autos {
         coleccionAutos.add(auto);
     }
 
+    //lista la coleccion de autos
     public void listar(){
+        System.out.println("\n");
         System.out.println("Lista de Autos");
         System.out.println("---------------");
         for (Auto item:coleccionAutos) {
             System.out.println(item.toString());
         }
     }
-/*
-    public void buscar_borrar(int id){
-        //buscar el auto del id en la coleccion y eliminarlo
-        try{
-        for (Auto item: coleccionAutos) {
-            if(item.getId(id) == id){
-                coleccionAutos.remove(id);
-            }
-        }}
-        catch(NumberFormatException e){
-            System.out.println("Debe ingresar un numero");
-        }
-    }*/
 
-
-    //busca un id dado de un auto en la coleccion y si lo encuentra eliminarlo
+    //busca un id dado de un auto en la coleccion y si lo encuentra lo elimina
     public void buscar_borrar_Auto(int id){
         Auto auto_buscado = null;
         for (Auto item : coleccionAutos) {
@@ -50,11 +38,19 @@ public class Autos {
         }else
             System.out.println("No se ha encontrado el ID "+id+" dentro de la coleccion");
     }
-    //elimina el auto que se busco en el metodo buscarAuto y lo elimina de la coleccion
-    /*
-    public void eliminarAuto(Auto auto){
 
-        coleccionAutos.remove(auto);
-    }*/
-
+    //trata la modificacion de un auto indicando su id
+    public void buscar_modificar_Auto(int id){
+        Auto auto_buscado = null;
+        for (Auto item : coleccionAutos) {
+            if(item.getId() == id){
+                auto_buscado = item;
+            }                               ////falta terminar
+        }
+        if (auto_buscado != null){
+            System.out.println("Que campo desea modificar?");
+           // auto_buscado.setMarca(texto);
+        }else
+            System.out.println("No se ha encontrado el ID "+id+" dentro de la coleccion");
+    }
 }

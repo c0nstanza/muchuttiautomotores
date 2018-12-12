@@ -14,15 +14,14 @@ public class Camioneta extends Rodado {
         super(id, marca, modelo, año, color, cantkm, precio);
         this.traccion = traccion;
     }
-
+    //constructor por default
     public Camioneta(){
 
     }
 
     @Override
     public String toString() {
-        return "Camioneta{" +
-                "4x4? =" + traccion +
-                '}';
+        return super.toString() +
+                " 4x4? = " + traccion;
     }
 }

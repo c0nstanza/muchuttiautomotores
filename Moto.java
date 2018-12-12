@@ -13,15 +13,14 @@ public class Moto extends Rodado{
         super(id, marca, modelo, año, color, cantkm, precio);
         this.cilindrada = cilindrada;
     }
-
+    //constructor por default
     public Moto(){
 
     }
 
     @Override
     public String toString() {
-        return "Moto{" +
-                "cilindrada=" + cilindrada +
-                '}';
+        return  super.toString() +
+                " Cilindrada=" + cilindrada;
     }
 }

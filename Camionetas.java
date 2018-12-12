@@ -15,35 +15,26 @@ public class Camionetas {
 
     //Imprime un listado de la coleccion de camionetas
     public void listar(){
+        System.out.println("\n");
         System.out.println("Lista de Camionetas");
         System.out.println("---------------");
         for (Camioneta item : coleccionCamionetas) {
-            System.out.println(item.getMarca());
+            System.out.println(item.toString());
         }
     }
-/*
-    //busca un id dado de una camioneta en la coleccion
-    public Camioneta buscarCamioneta(int id){
 
+    //busca un id dado de una camioneta en la coleccion y si lo encuentra lo elimina
+    public void buscar_borrar_Camioneta(int id){
         Camioneta camioneta_buscada = null;
         for (Camioneta item : coleccionCamionetas) {
-            if(item.getId(id) == id){
+            if(item.getId() == id){
                 camioneta_buscada = item;
             }
         }
-        return camioneta_buscada;
+        if (camioneta_buscada != null){
+            coleccionCamionetas.remove(camioneta_buscada);
+        }else
+            System.out.println("No se ha encontrado el ID "+id+" dentro de la coleccion");
     }
-    //elimina la camioneta que se busco en el metodo buscarCamioneta y la elimina de la coleccion
-    public void eliminarCamioneta(Camioneta camioneta){
-        coleccionCamionetas.remove(camioneta);
-    }*/
 
-    public void buscar_borrar(int id){
-        //buscar el id de la camioneta en la coleccion y eliminarlo
-        for (Camioneta item: coleccionCamionetas) {
-            if(item.getId(id) == id){
-                coleccionCamionetas.remove(id);
-            }
-        }
-    }
 }
