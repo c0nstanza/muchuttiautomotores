@@ -21,6 +21,6 @@ public class Camion extends Rodado {
     @Override
     public String toString() {
         return super.toString()+
-                " Potencia =" + potencia;
+                " Potencia = " + potencia;
     }
 }

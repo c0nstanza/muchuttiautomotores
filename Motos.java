@@ -53,7 +53,7 @@ public class Motos {
         } //si es distinto de null es porque encontro la moto con id ingresado
         if (moto_buscada != null){
             System.out.println("Que desea modificar?");
-            System.out.println("1. Marca\n2. Modelo:\n3. Año\n4. Color\n5. Cant de km\n6. Precio\n7. Cilindrada: ");
+            System.out.println("1. Marca\n2. Modelo\n3. Año\n4. Color\n5. Cant de km\n6. Precio\n7. Cilindrada: ");
             System.out.print("Opcion: ");
             opcion = sc.nextInt();
             switch (opcion){
@@ -74,7 +74,14 @@ public class Motos {
                 case 3:
                     System.out.print("Año: ");
                     texto = sc.next();
-                    moto_buscada.setAño(Integer.parseInt(texto));
+                    try {
+                        moto_buscada.setAño(Integer.parseInt(texto));
+                    }catch(NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Año: ");
+                        texto = sc.next();
+                        moto_buscada.setAño(Integer.parseInt(texto));
+                    }
                     coleccionMotos.add(id-1,moto_buscada);
                     coleccionMotos.remove(moto_buscada);
                     break;
@@ -88,21 +95,42 @@ public class Motos {
                 case 5:
                     System.out.print("Cantidad de km: ");
                     texto = sc.next();
-                    moto_buscada.setCantkm(Integer.parseInt(texto));
+                    try {
+                        moto_buscada.setCantkm(Float.parseFloat(texto));
+                    }catch(NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Cantidad de km: ");
+                        texto = sc.next();
+                        moto_buscada.setCantkm(Float.parseFloat(texto));
+                    }
                     coleccionMotos.add(id-1,moto_buscada);
                     coleccionMotos.remove(moto_buscada);
                     break;
                 case 6:
                     System.out.print("Precio: $");
                     texto = sc.next();
-                    moto_buscada.setPrecio(Integer.parseInt(texto));
+                    try{
+                        moto_buscada.setPrecio(Float.parseFloat(texto));
+                    }catch (NumberFormatException ex){
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Precio: " );
+                        texto = sc.next();
+                        moto_buscada.setPrecio(Float.parseFloat(texto));
+                    }
                     coleccionMotos.add(id-1,moto_buscada);
                     coleccionMotos.remove(moto_buscada);
                     break;
                 case 7:
                     System.out.print("Cilindrada: ");
                     texto = sc.next();
-                    moto_buscada.setCilindrada(Integer.parseInt(texto));
+                    try {
+                        moto_buscada.setCilindrada(Integer.parseInt(texto));
+                    }catch (NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Cilindrada: ");
+                        texto = sc.next();
+                        moto_buscada.setCilindrada(Integer.parseInt(texto));
+                    }
                     coleccionMotos.add(id-1,moto_buscada);
                     coleccionMotos.remove(moto_buscada);
                     break;

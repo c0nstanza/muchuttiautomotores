@@ -50,7 +50,7 @@ public class Camiones {
         }
         if (camion_buscado != null){
             System.out.println("Que desea modificar?");
-            System.out.println("1. Marca\n2. Modelo:\n3. Año\n4. Color\n5. Cant de km\n6. Precio\n7. Potencia");
+            System.out.println("1. Marca\n2. Modelo\n3. Año\n4. Color\n5. Cant de km\n6. Precio\n7. Potencia");
             System.out.print("Opcion: ");
             opcion = sc.nextInt();
             switch (opcion){
@@ -71,7 +71,14 @@ public class Camiones {
                 case 3:
                     System.out.print("Año: ");
                     texto = sc.next();
-                    camion_buscado.setAño(Integer.parseInt(texto));
+                    try {
+                        camion_buscado.setAño(Integer.parseInt(texto));
+                    }catch(NumberFormatException ex){
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Año: " );
+                        texto = sc.next();
+                        camion_buscado.setAño(Integer.parseInt(texto));
+                    }
                     coleccionCamiones.add(id-1,camion_buscado);
                     coleccionCamiones.remove(camion_buscado);
                     break;
@@ -85,14 +92,28 @@ public class Camiones {
                 case 5:
                     System.out.print("Cantidad de km: ");
                     texto = sc.next();
-                    camion_buscado.setCantkm(Integer.parseInt(texto));
+                    try{
+                        camion_buscado.setCantkm(Float.parseFloat(texto));
+                    }catch(NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Cantidad de km: ");
+                        texto = sc.next();
+                        camion_buscado.setCantkm(Float.parseFloat(texto));
+                    }
                     coleccionCamiones.add(id-1,camion_buscado);
                     coleccionCamiones.remove(camion_buscado);
                     break;
                 case 6:
                     System.out.print("Precio: $");
                     texto = sc.next();
-                    camion_buscado.setPrecio(Integer.parseInt(texto));
+                    try{
+                        camion_buscado.setPrecio(Float.parseFloat(texto));
+                    }catch (NumberFormatException ex){
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Precio: " );
+                        texto = sc.next();
+                        camion_buscado.setPrecio(Float.parseFloat(texto));
+                    }
                     coleccionCamiones.add(id-1,camion_buscado);
                     coleccionCamiones.remove(camion_buscado);
                     break;

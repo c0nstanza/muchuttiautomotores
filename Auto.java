@@ -55,9 +55,9 @@ public class Auto extends Rodado{
     public String toString() {
         return
                 super.toString()+
-                " Cant. Puertas =" + cantpuertas +
-                ", Motor =" + motor +
-                ", Cant Valvulas =" + cantvalvulas +
-                ", Baul (litros) =" + baul;
+                " Cant. Puertas = " + cantpuertas +
+                ", Motor = " + motor +
+                ", Cant Valvulas = " + cantvalvulas +
+                ", Baul (litros) = " + baul;
     }
 }

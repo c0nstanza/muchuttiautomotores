@@ -53,7 +53,7 @@ public class Autos {
         }
         if (auto_buscado != null){
             System.out.println("Que desea modificar?");
-            System.out.println("1. Marca\n2. Modelo:\n3. Año\n4. Color\n5. Cant de km\n6. Precio");
+            System.out.println("1. Marca\n2. Modelo\n3. Año\n4. Color\n5. Cant de km\n6. Precio\n7. Cant. de puertas\n8. Motor\n9. Cant. de valvulas\n10. Baul (litros)");
             System.out.print("Opcion: ");
             opcion = sc.nextInt();
             switch (opcion){
@@ -63,60 +63,119 @@ public class Autos {
                     auto_buscado.setMarca(texto);
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 2:
                     System.out.print("Modelo: ");
                     texto = sc.next();
                     auto_buscado.setModelo(texto);
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 3:
                     System.out.print("Año: ");
                     texto = sc.next();
-                    auto_buscado.setAño(Integer.parseInt(texto));
+                    try{
+                        auto_buscado.setAño(Integer.parseInt(texto));
+                    }catch(NumberFormatException ex){
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Año: " );
+                        texto = sc.next();
+                        auto_buscado.setAño(Integer.parseInt(texto));
+                    }
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 4:
                     System.out.print("Color: ");
                     texto = sc.next();
                     auto_buscado.setColor(texto);
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 5:
                     System.out.print("Cantidad de km: ");
                     texto = sc.next();
-                    auto_buscado.setCantkm(Integer.parseInt(texto));
+                    try{
+                        auto_buscado.setCantkm(Float.parseFloat(texto));
+                    }catch(NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Cantidad de km: ");
+                        texto = sc.next();
+                        auto_buscado.setCantkm(Float.parseFloat(texto));
+                    }
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 6:
                     System.out.print("Precio: $");
                     texto = sc.next();
-                    auto_buscado.setPrecio(Integer.parseInt(texto));
+                    try{
+                        auto_buscado.setPrecio(Float.parseFloat(texto));
+                    }catch (NumberFormatException ex){
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Precio: " );
+                        texto = sc.next();
+                        auto_buscado.setPrecio(Float.parseFloat(texto));
+                    }
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 7:
                     System.out.print("Cantidad de puertas: ");
                     texto = sc.next();
-                    auto_buscado.setCantpuertas(Integer.parseInt(texto));
+                    try {
+                        auto_buscado.setCantpuertas(Integer.parseInt(texto));
+                    }catch (NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Cantidad de puertas: ");
+                        texto = sc.next();
+                        auto_buscado.setCantpuertas(Integer.parseInt(texto));
+                    }
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 8:
                     System.out.print("Motor: ");
                     texto = sc.next();
-                    auto_buscado.setMotor(Integer.parseInt(texto));
+                    try{
+                        auto_buscado.setMotor(Float.parseFloat(texto));
+                    }catch (NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Motor: ");
+                        texto = sc.next();
+                        auto_buscado.setMotor(Float.parseFloat(texto));
+                    }
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 9:
                     System.out.print("Cantidad de valvulas: ");
                     texto = sc.next();
-                    auto_buscado.setCantvalvulas(Integer.parseInt(texto));
+                    try{
+                        auto_buscado.setCantvalvulas(Integer.parseInt(texto));
+                    }catch (NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Cantidad de valvulas: " );
+                        texto = sc.next();
+                        auto_buscado.setCantvalvulas(Integer.parseInt(texto));
+                    }
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
                 case 10:
                     System.out.print("Baul (litros): ");
                     texto = sc.next();
-                    auto_buscado.setBaul(Integer.parseInt(texto));
+                    try {
+                        auto_buscado.setBaul(Integer.parseInt(texto));
+                    }catch (NumberFormatException ex) {
+                        System.out.println("Error. Esto es un campo numerico.");
+                        System.out.print("Baul (litros): ");
+                        texto = sc.next();
+                        auto_buscado.setBaul(Integer.parseInt(texto));
+                    }
                     coleccionAutos.add(id-1,auto_buscado);
                     coleccionAutos.remove(auto_buscado);
+                    break;
             }
         }else {
             System.out.println("No se ha encontrado el ID " + id + " dentro de la coleccion de autos");
